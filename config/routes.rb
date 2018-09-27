@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/search', to: 'recipes#search'
   resources :recipes, only: [:index, :new, :create, :show]
-  resources :users, only: [:index, :show, :delete]
+  resources :users, only: [:index, :show, :destroy]
   resources :ingredients, only: [:index, :show]
 
 end

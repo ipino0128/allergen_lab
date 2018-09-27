@@ -1,0 +1,10 @@
+USER PAGE: <br>
+<%= @user.name %><br>
+Recipes:<br>
+<% @user.recipes.each do |recipe| %>
+<%= recipe.name %><br></br>
+<% end %>
+
+<%= form_tag @user, method: "DELETE" do %>
+  <%= submit_tag "delete user" %>
+  <% end %>

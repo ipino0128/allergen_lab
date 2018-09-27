@@ -1,11 +1,8 @@
 class RecipesController < ApplicationController
 
   def index
-    if @recipes
-      render :index
-    else
+
     @recipes = Recipe.all
-  end
   end
 
   def new
@@ -14,6 +11,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.create(recipe_params)
+
+    redirect_to recipe_path(@recipe)
   end
 
   def show
@@ -24,12 +23,12 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
     @selected_recipes = []
     @recipes.each do |recipe|
-      if recipe.ingredients.length == :q
+      if recipe.ingredients.length == params[:q].to_i
         @selected_recipes << recipe
       end
     end
-      byebug
-    redirect_to recipes_path
+    @selected_recipes
+    render :'recipes/search'
   end
 
   private
