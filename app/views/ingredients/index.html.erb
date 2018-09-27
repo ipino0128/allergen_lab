@@ -1,3 +1,7 @@
 <% @ingredients.each do |ing| %>
 <%= ing.name %><br>
 <% end %>
+RANK:<br>
+<% @ingredients.ranked_allergies.each do |ing| %>
+<%= ing.name %><br>
+<% end %>
