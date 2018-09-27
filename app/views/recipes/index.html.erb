@@ -1,0 +1,11 @@
+<h1>All Recipes:</h1>
+<%@recipes.each do |recipe|%>
+  <li> <%= link_to recipe.name, recipe_path(recipe) %> </li> <br><br>
+<%end%>
+
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
